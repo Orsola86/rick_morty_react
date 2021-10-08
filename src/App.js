@@ -6,6 +6,7 @@ import axios from "axios";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(1);
+  const [maxPage, setMaxPage] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
@@ -13,6 +14,7 @@ function App() {
         .get(`https://rickandmortyapi.com/api/character?page=${page}`)
         .then((response) => {
           setCharacters(response.data.results);
+          setMaxPage(response.data.info.pages);
         });
     }
     fetchData();
@@ -20,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation setPage={setPage} page={page} />
+      <Navigation setPage={setPage} page={page} maxPage={maxPage} />
       <Characters characters={characters} setCharacters={setCharacters} />
     </div>
   );

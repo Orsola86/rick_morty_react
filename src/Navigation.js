@@ -6,7 +6,7 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import Badge from "@mui/material/Badge";
 
-export default function Navigation({ page, setPage }) {
+export default function Navigation({ page, setPage, maxPage }) {
   return (
     <Container fixed sx={{ mt: 4 }}>
       <Grid container spacing={2}>
@@ -27,7 +27,7 @@ export default function Navigation({ page, setPage }) {
         </Grid>
         <Grid item xs={4} sx={{ display: "flex" }}>
           <Button
-            disabled={page >= 34 ? true : false}
+            disabled={page === maxPage ? true : false}
             onClick={() => setPage(page + 1)}
             variant="contained"
             endIcon={<NavigateNextIcon />}
