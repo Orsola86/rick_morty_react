@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-export default function Character({ character }) {
+export default function Character({ image, name, species, status }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -15,17 +15,17 @@ export default function Character({ character }) {
           component="img"
           alt="green iguana"
           height="140"
-          image={character.image}
+          image={image}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {character.name}
+            {name}
           </Typography>
           <Typography variant="subtitle1" color="text.primary">
-            {character.species}
+            {species}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {character.status}
+            {status}
           </Typography>
         </CardContent>
       </CardActionArea>

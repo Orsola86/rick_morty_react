@@ -27,7 +27,7 @@ export default function Navigation({ page, setPage, maxPage }) {
         </Grid>
         <Grid item xs={4} sx={{ display: "flex" }}>
           <Button
-            disabled={page === maxPage ? true : false}
+            disabled={page === maxPage}
             onClick={() => setPage(page + 1)}
             variant="contained"
             endIcon={<NavigateNextIcon />}
